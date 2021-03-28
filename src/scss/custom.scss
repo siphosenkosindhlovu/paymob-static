@@ -25,6 +25,29 @@ $custom-colors: (
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+$spacers: (
+  0: 0,
+  '0_5': $spacer * 0.25,
+  1: $spacer * 0.5,
+  '1_5': $spacer * 0.75,
+  2: $spacer * 0.875,
+  3: $spacer,
+  4: $spacer * 1.25,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 2.25,
+  8: $spacer * 2.5,
+  9: $spacer * 2.75,
+  10: $spacer * 3,
+  13: $spacer * 3.75,
+  14: $spacer * 4,
+  17: $spacer * 4.75,
+  18: $spacer * 5,
+  22: $spacer * 6,
+  26: $spacer * 7,
+  30: $spacer * 8,
+);
+
 //typography
 $font-family-sans-serif: "GT Walsheim Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
   "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
@@ -45,6 +68,7 @@ $font-sizes: (
   4: $h4-font-size,
   5: $h5-font-size,
   6: $h6-font-size,
+  tiny: 0.5rem,
   xxs: 0.6875rem,
   xs: 0.75rem,
   sm: 0.875rem,
@@ -65,6 +89,24 @@ $nav-link-hover-color: $orange;
 
 $dropdown-link-hover-bg: rgba(96, 96, 96, 0.05);
 $enable-shadows: true;
+@import "../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": map-merge(
+      map-get($utilities, "width"),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "width"), "values"),
+          (77ch: 77ch),
+        ),
+      ),
+    ),
+  )
+);
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 /* @import "../../node_modules/bootstrap/scss/reboot";  */ // Required
 /* @import "../../node_modules/bootstrap/scss/type";
