@@ -13,9 +13,25 @@
     }
   }
 }
-
+.nav-link {
+  line-height: 1;
+}
 .nav-item:first-child  {
   .nav-link {
     padding-left: 0;
+  }
+}
+
+.nav-dropdown {
+  padding: 0;
+  border-radius: 0;
+  border: 0;
+  margin-top: -2px !important;
+  box-shadow: $box-shadow;
+  .nav-item {
+    padding: {
+      top: 1.15rem;
+      bottom: 1.15rem;
+    }
   }
 }

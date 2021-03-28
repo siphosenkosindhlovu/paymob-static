@@ -2,13 +2,13 @@
 @import "../../node_modules/bootstrap/scss/variables"; // Required
 @import "../../node_modules/bootstrap/scss/mixins"; // Required
 //colours
-$blue: #2950AF;
-$blue-dark: #11358B;
-$navy: #08243B;
-$orange: #FF5833;
+$blue: #2950af;
+$blue-dark: #11358b;
+$navy: #08243b;
+$orange: #ff5833;
 $light: #f8f8fa;
-
-$body-color: #606060;
+$gray: #606060;
+$body-color: $gray;
 
 $primary: $blue;
 
@@ -20,21 +20,23 @@ $colors: (
 $custom-colors: (
   "blue-dark": $blue-dark,
   "accent": $orange,
-  "primary": $blue
+  "primary": $blue,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 //typography
-$font-family-sans-serif: "GT Walsheim Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-size-base:              1rem ;
+$font-family-sans-serif: "GT Walsheim Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
+$font-size-base: 1rem;
 
-$h1-font-size:                4rem;
-$h2-font-size:                3.5rem;
-$h3-font-size:                3rem;
-$h4-font-size:                2rem;
-$h5-font-size:                1.3125rem;
-$h6-font-size:                $font-size-base;
+$h1-font-size: 4rem;
+$h2-font-size: 3.5rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2rem;
+$h5-font-size: 1.3125rem;
+$h6-font-size: $font-size-base;
 
 $font-sizes: (
   1: $h1-font-size,
@@ -50,15 +52,21 @@ $font-sizes: (
 
 $headings-font-family: Gilroy, sans-serif;
 $headings-font-weight: 800;
-$headings-color:  $blue;
+$headings-color: $blue;
 
-$nav-link-font-size: map-get($map: $font-sizes, $key: sm);
-$nav-link-padding-y:                1.28125rem !default;
-$nav-link-padding-x:                1.25rem;
-$nav-link-color:                    $body-color;
-$nav-link-hover-color:  $orange;
-@import "../../node_modules/bootstrap/scss/bootstrap"; 
-/* @import "../../node_modules/bootstrap/scss/reboot";  */// Required
+$nav-link-font-size: map-get(
+  $map: $font-sizes,
+  $key: sm,
+);
+$nav-link-padding-y: 1.28125rem;
+$nav-link-padding-x: 1.25rem;
+$nav-link-color: $body-color;
+$nav-link-hover-color: $orange;
+
+$dropdown-link-hover-bg: rgba(96, 96, 96, 0.05);
+$enable-shadows: true;
+@import "../../node_modules/bootstrap/scss/bootstrap";
+/* @import "../../node_modules/bootstrap/scss/reboot";  */ // Required
 /* @import "../../node_modules/bootstrap/scss/type";
 @import "../../node_modules/bootstrap/scss/images";
 //@import "../../node_modules/bootstrap/scss/code";
