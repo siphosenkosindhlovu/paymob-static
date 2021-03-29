@@ -1,10 +1,10 @@
 .footer {
   &-widgets {
     display: flex;
-    flex-wrap: nowrap;
   }
   &-widget {
     @extend .me-7;
+    @extend .mb-5;
     &-header {
       color: white;
       @extend .fs-sm;

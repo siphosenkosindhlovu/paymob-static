@@ -49,3 +49,12 @@
   font-weight: 400;
   font-style: normal;
 }
+
+dt {
+  font-family: $font-family-heading;
+  font-size: $h5-font-size;
+}
+
+.ff-base {
+  font-family: $font-family-base;
+}

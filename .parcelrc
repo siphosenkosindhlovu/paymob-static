@@ -1,0 +1,7 @@
+{
+  "extends": "@parcel/config-default",
+  "namers": ["@mischnic/parcel-namer-preserve-structure", "..."],
+  "transformers": {
+    "*.ejs": ["parcel-plugin-ejs-template"]
+  }
+}
