@@ -1,1 +1,1 @@
-import { Dropdown } from 'bootstrap';
+import { Dropdown, Accordion } from 'bootstrap';

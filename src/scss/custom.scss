@@ -2,6 +2,8 @@
 @import "../../node_modules/bootstrap/scss/variables"; // Required
 @import "../../node_modules/bootstrap/scss/mixins"; // Required
 //colours
+$blue-light-1: #abc5ff;
+$blue-light-2: #5786ed;
 $blue: #2950af;
 $blue-dark: #11358b;
 $navy: #08243b;
@@ -12,24 +14,24 @@ $body-color: $gray;
 
 $primary: $blue;
 
-$colors: (
-  "navy": $navy,
-  "blue-dark": $blue-dark,
-);
-
 $custom-colors: (
+  "blue-light-1": $blue-light-1,
+  "blue-light-2": $blue-light-2,
   "blue-dark": $blue-dark,
   "accent": $orange,
   "primary": $blue,
+  "navy": $navy,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+$min-contrast-ratio:  3;
+
 $spacers: (
   0: 0,
-  '0_5': $spacer * 0.25,
+  "0_5": $spacer * 0.25,
   1: $spacer * 0.5,
-  '1_5': $spacer * 0.75,
+  "1_5": $spacer * 0.75,
   2: $spacer * 0.875,
   3: $spacer,
   4: $spacer * 1.25,
@@ -45,6 +47,7 @@ $spacers: (
   18: $spacer * 5,
   22: $spacer * 6,
   26: $spacer * 7,
+  29: $spacer * 7.75,
   30: $spacer * 8,
 );
 
@@ -52,6 +55,7 @@ $spacers: (
 $font-family-sans-serif: "GT Walsheim Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
   "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji";
+$font-family-heading: "Gilroy-Extrabold", sans-serif;
 $font-size-base: 1rem;
 
 $h1-font-size: 4rem;
@@ -72,11 +76,17 @@ $font-sizes: (
   xxs: 0.6875rem,
   xs: 0.75rem,
   sm: 0.875rem,
+  md: 1.125rem,
+  2md: 1.5rem,
+  lg: 2.2625rem,
 );
 
-$headings-font-family: Gilroy, sans-serif;
-$headings-font-weight: 800;
+$headings-font-family: 'Gilroy-Extrabold', sans-serif;
+$headings-font-weight: normal;
 $headings-color: $blue;
+$headings-margin-bottom: 1.75rem;
+
+$line-height-base: 1.6875;
 
 $nav-link-font-size: map-get(
   $map: $font-sizes,
@@ -89,21 +99,58 @@ $nav-link-hover-color: $orange;
 
 $dropdown-link-hover-bg: rgba(96, 96, 96, 0.05);
 $enable-shadows: true;
+
+$border-radius-sm: 0.3125rem;
+$border-radius: 1.25rem;
+$border-radius-lg: 1.875rem;
+
+$btn-border-radius: 999px;
+$btn-padding-y: 0.675rem;
+$btn-padding-x: 1.5rem;
+
+$accordion-border-color: transparent;
+$accordion-button-padding-x: 0;
+$accordion-button-color: $blue;
+$accordion-button-bg: transparent;
+$accordion-button-active-bg: transparent;
+$accordion-button-active-color: $orange;
+$accordion-button-icon: "+";
+$accordion-button-active-icon: "-";
+
 @import "../../node_modules/bootstrap/scss/utilities";
 
 $utilities: map-merge(
   $utilities,
   (
-    "width": map-merge(
-      map-get($utilities, "width"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "width"), "values"),
-          (77ch: 77ch),
-        ),
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), "values"),
+              (
+                77ch: 77ch,
+              )
+            ),
+        )
       ),
-    ),
+    "position":
+      map-merge(
+        map-get($utilities, "position"),
+        (
+          responsive: true,
+          values: map-get(map-get($utilities, "position"), "values"),
+        )
+      ),
+      "z-index": (
+        property: "z-index",
+        values : (
+          negative: -1,
+          auto: auto,
+        )
+      )
   )
 );
 
